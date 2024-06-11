@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  links-db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: links
+      POSTGRES_PASSWORD: links
+      POSTGRES_DB: links
+    ports:
+      - 5432:5432
