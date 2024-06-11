@@ -8,15 +8,19 @@ import {
 } from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
 
-@Entity('links')
-export class Link {
+@Entity('records')
+export class Record {
   @ApiProperty()
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @ApiProperty()
-  @Column({ type: 'timestamp' })
-  value: Date;
+  @Column({ type: 'text', unique: true })
+  value: string;
+
+  @ApiProperty()
+  @Column({ type: 'boolean', default: false })
+  viewed: boolean;
 
   @ApiProperty()
   @CreateDateColumn({

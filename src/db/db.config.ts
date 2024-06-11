@@ -11,7 +11,7 @@ export const TYPEORM_CONFIG: TypeOrmModuleOptions = {
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
   synchronize: false,
-  logging: true,
+  logging: false,
   entities: ['dist/**/*.entity{.ts,.js}'],
   extra: { connectionLimit: 5 },
 };

@@ -10,8 +10,10 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
     .setTitle('Links API')
+    .setDescription('Test records API')
     .setVersion('1.0')
     .build();
+
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document, {
     swaggerOptions: {
@@ -21,7 +23,7 @@ async function bootstrap() {
     },
   });
 
-  const port = process.env.PORT || 3333;
+  const port: number = parseInt(process.env.PORT, 10) || 3333;
   await app.listen(port);
   Logger.log(`🚀 Application is running on: http://localhost:${port}/api`);
 }
